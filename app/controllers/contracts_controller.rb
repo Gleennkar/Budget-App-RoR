@@ -1,70 +1,32 @@
 class ContractsController < ApplicationController
-  before_action :set_contract, only: %i[ show edit update destroy ]
-
-  # GET /contracts or /contracts.json
-  def index
-    @contracts = Contract.all
-  end
-
-  # GET /contracts/1 or /contracts/1.json
-  def show
-  end
-
-  # GET /contracts/new
   def new
-    @contract = Contract.new
+    @current_group = Group.find(params[:group_id])
+    new_contract = Contract.new
+    respond_to do |format|
+      format.html { render :new, locals: { contract: new_contract, current_group: @current_group } }
+    end
   end
 
-  # GET /contracts/1/edit
-  def edit
-  end
-
-  # POST /contracts or /contracts.json
   def create
-    @contract = Contract.new(contract_params)
-
+    @current_group = Group.find(params[:group_id])
+    contract_params = params.require(:contract).permit(:name, :amount, group_ids: [])
+    contract = Contract.new( contract_params)
+    contract.user = current_user
+    selected_groups = Group.find( contract_params[:group_ids].reject(&:empty?))
+    selected_groups.each do |group|
+      contract.groups << group unless  contract.groups.include?(group)
+    end
     respond_to do |format|
-      if @contract.save
-        format.html { redirect_to contract_url(@contract), notice: "Contract was successfully created." }
-        format.json { render :show, status: :created, location: @contract }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @contract.errors, status: :unprocessable_entity }
+      format.html do
+        if  contract.save
+          flash[:notice] = ' contract created successfully'
+          redirect_to  group_path(@current_group)
+        else
+          flash.now[:alert] = ' contract could not be created'
+          format.html { render :new, status: :unprocessable_entity }
+        end
+        end
       end
     end
-  end
 
-  # PATCH/PUT /contracts/1 or /contracts/1.json
-  def update
-    respond_to do |format|
-      if @contract.update(contract_params)
-        format.html { redirect_to contract_url(@contract), notice: "Contract was successfully updated." }
-        format.json { render :show, status: :ok, location: @contract }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @contract.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /contracts/1 or /contracts/1.json
-  def destroy
-    @contract.destroy
-
-    respond_to do |format|
-      format.html { redirect_to contracts_url, notice: "Contract was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_contract
-      @contract = Contract.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def contract_params
-      params.require(:contract).permit(:name, :amount, :author_id)
-    end
 end

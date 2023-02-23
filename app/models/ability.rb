@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -8,11 +6,12 @@ class Ability
 
     # Define abilities for the user here. For example:
     #
-     return unless user.present?
-      can :read, :all
-      can :manage, Group, user: user
-      can :manage, Contract, user: user
-      can :manage, ContractGroup, user: user
+    return unless user.present?
+
+    can :read, :all
+    can(:manage, Group, user:)
+    can(:manage, Contract, user:)
+    can :manage, ContractGroup, user:
     #   return unless user.admin?
     #   can :manage, :all
     #

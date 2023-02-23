@@ -1,2 +1,302 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ body {
+    background-color: rgba(67, 75, 84, 0.05);
+    font-family: 'Proxima Nova Light', system-ui, san-serif;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Proxima Nova Light', system-ui, san-serif;
+  }
+  
+  form a {
+    color: #434b54;
+    text-decoration: none;
+    margin-top: 1em;
+  }
+  
+  form .field {
+    width: 100%;
+  }
+  
+  input {
+    border: 1px solid #d1d5da;
+    padding: 0.5em;
+    font-size: 1em;
+    height: 2em;
+    width: calc(100% - 1em);
+  }
+  
+  select {
+    height: auto;
+    border: 1px solid #d1d5da;
+    padding: 0.5em;
+    font-size: 1em;
+    width: 100%;
+    color: #434b54;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .form-submit {
+    background-color: #5fb523;
+    border: none;
+    padding: 0.5em;
+    width: 60%;
+    margin-top: 1em;
+  }
+  
+  .form-submit input {
+    border: none;
+    background-color: #5fb523;
+    color: #fff;
+    height: auto;
+  }
+  
+  .splash-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1em;
+  }
+  
+  .welcome {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Proxima Nova Bold', system-ui, san-serif;
+    font-size: 1em;
+  }
+  
+  .welcome-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 20%;
+    font-family: 'Proxima Nova Light', system-ui, san-serif;
+  }
+  
+  .welcome-actions a {
+    text-decoration: none;
+    justify-self: center;
+  }
+  
+  .welcome-actions div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .login {
+    background-color: #3778c2;
+    height: 50%;
+    border-radius: 4px;
+  }
+  
+  .nav-bar {
+    background-color: #3778c2;
+    height: 4em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20%;
+    padding: 0.3em;
+  }
+  
+  .nav-bar a {
+    color: #fff;
+  }
+  
+  .back-arrow {
+    align-self: center;
+  }
+  
+  .login-head {
+    font-weight: 300;
+    font-size: 1.2em;
+    align-self: center;
+  }
+  
+  .login a {
+    color: #fff;
+  }
+  
+  .signup a {
+    color: #434b54;
+  }
+  
+  .welcome img {
+    width: 30%;
+    margin: 0 auto;
+  }
+  
+  .notification {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+  }
+  
+  .notification p {
+    font-size: 0.7em;
+  }
+  
+  .signout {
+    width: 20%;
+  }
+  
+  .button_to {
+    border: none;
+    color: #fff;
+  }
+  
+  .button_to button {
+    border: none;
+    color: #fff;
+    background-color: #5fb523;
+    padding: 0.5em;
+    border-radius: 4px;
+    font-size: 0.5em;
+  }
+  
+  .categories,
+  .transactions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1em 0;
+    gap: 0.5em;
+    padding: 0 1em;
+  }
+  
+  .category {
+    width: 100%;
+    height: 6em;
+    background-color: #fff;
+  }
+  
+  .transaction {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1em;
+    padding: 1em;
+  }
+  
+  .trans-title {
+    text-align: center;
+  }
+  
+  .transaction__name {
+    color: #434b54;
+    font-weight: 500;
+    border-bottom: solid 1px rgba(67, 75, 84, 0.1);
+  }
+  
+  .transaction__date p {
+    color: rgba(67, 75, 84, 0.8);
+    font-weight: 400;
+    font-size: 0.8em;
+    padding: 0;
+  }
+  
+  .transaction__date {
+    color: rgba(67, 75, 84, 0.5);
+    font-weight: 200;
+    border-bottom: solid 1px rgba(67, 75, 84, 0.1);
+    font-size: 0.7em;
+  }
+  
+  .transaction__amount {
+    color: #434b54;
+    font-weight: 500;
+    font-size: 0.8em;
+  }
+  
+  .category a {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0.5em;
+  }
+  
+  .app-logo img {
+    width: 60%;
+    border-radius: 50%;
+  }
+  
+  .category a img {
+    width: 25%;
+  }
+  
+  .category-name {
+    width: 50%;
+    color: rgba(67, 75, 84, 0.5);
+    padding: 0 1em;
+  }
+  
+  .category-total {
+    width: 25%;
+    color: #000;
+  }
+  
+  .new-category,
+  .new-transaction {
+    height: 4em;
+    margin-top: 2em;
+    background-color: #5fb523;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .new-category a,
+  .new-transaction a {
+    border: #fff 1px solid;
+    border-radius: 4px;
+    color: #fff;
+    width: 60%;
+    text-align: center;
+    padding: 0.6em;
+  }
+  
+  .app-logo {
+    width: 20%;
+    align-self: center;
+  }
