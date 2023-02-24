@@ -105,9 +105,9 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> View Video Demo [here](https://www.loom.com/share/97c1cd7acc91468892cb806d8d11615d)
+> View Video Demo [here](https://www.loom.com/share/e7d8c7f91d024dd5bf34da737a510094)
 
-> View Live Demo [here](https://budget-app-r5on.onrender.com) 
+> View Live Demo [here](https://fonkwa.onrender.com) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
