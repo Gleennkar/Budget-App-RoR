@@ -1,18 +1,18 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: micronaut
+    databaseName: micronaut_14mr
+    user: micronaut_14mr_user
 
 services:
   - type: web
-    name: mysite
+    name: Fonkwa
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: micronaut_14mr
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
