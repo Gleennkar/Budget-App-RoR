@@ -1,0 +1,11 @@
+<div class="min-h-screen relative">
+  <header class="w-full p-3 bg-[#3778c2] text-white text-lg flex justify-between">
+    <nav>
+      <a onclick="history.back()"><i class="fa-solid fa-chevron-left fa-lg"></i></a>
+    </nav>
+    <h1 class="ml-[-15px]">NEW TRANSACTION<h1>
+    <span></span>
+  </header>
+  <%= render "form", payment: @payment %>
+</div>
+

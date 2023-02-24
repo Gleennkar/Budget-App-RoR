@@ -10,31 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_20_131153) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_194707) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "contract_groups", force: :cascade do |t|
-    t.integer "contract_id"
-    t.integer "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "contracts", force: :cascade do |t|
-    t.string "name"
-    t.integer "amount"
-    t.bigint "author_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_contracts_on_author_id"
-  end
-
-  create_table "groups", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "icon"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "categories_payments", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "payment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categories_payments_on_category_id"
+    t.index ["payment_id"], name: "index_categories_payments_on_payment_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "name"
+    t.integer "amount"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,14 +50,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_20_131153) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "contracts", "users", column: "author_id"
+  add_foreign_key "categories", "users"
+  add_foreign_key "categories_payments", "categories"
+  add_foreign_key "categories_payments", "payments"
+  add_foreign_key "payments", "users"
 end

@@ -1,0 +1,27 @@
+<%= form_with(model: payment, class: "w-full mt-10 flex flex-col items-center gap-2") do |form| %>
+  <div class="w-full">
+    <%= form.text_field :name, placeholder: "Transaction name", class: "w-full p-3" %>
+  
+    <%= form.text_field :amount, placeholder: "Transaction amount", class: "mt-2 w-full p-3" %>
+
+    <%= form.collection_select :category_ids, Category.all, :id, :name, { include_blank: false }, { multiple: true, class: " mt-2 w-full p-3" } %>
+  </div>
+
+  <% if payment.errors.any? %>
+    <div class="w-full h-fit p-4 bg-red-400  text-white">
+      <h2><%= pluralize(payment.errors.count, "error") %> found:</h2>
+
+      <ul class="list-disc list-inside">
+        <% payment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="absolute bottom-0 w-full text-center bg-[#5fb523] p-4 text-white">
+    <div class="w-full border-[1px] border-white py-4 cursor-pointer">
+      <%= form.submit "Save", class: "w-full text-lg cursor-pointer" %>
+    </div>
+  </div>
+<% end %>

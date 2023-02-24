@@ -1,0 +1,27 @@
+<div class="min-h-screen relative">
+  <header class="w-full p-3 bg-[#3778c2] text-white text-lg flex justify-between">
+    <nav>
+      <i class="fa-solid fa-bars fa-lg"></i>
+    </nav>
+    <h1>Categories<h1>
+    <%= button_to destroy_user_session_path, method: :delete do %>
+      <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i>
+    <% end %>
+  </header>
+
+  <ul class="w-full" id="categories">
+    <% @categories.each do |category| %>
+      <li class="w-[90%] mt-4 p-3 shadow mx-auto bg-white border-[1px] border-slate-200">
+        <%= link_to category do %>
+          <%= render category %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="absolute bottom-0 w-full text-center bg-[#5fb523] p-4 text-white">
+    <div class="w-full border-[1px] border-white py-4 cursor-pointer">
+      <%= link_to "Add new category", new_category_path, class: "w-full text-lg" %>
+    </div>
+  </div>
+</div>
