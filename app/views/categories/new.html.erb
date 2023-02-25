@@ -1,0 +1,14 @@
+<div class="min-h-screen relative">
+  <header class="w-full p-3 bg-[#3778c2] text-white text-lg flex justify-between">
+    <nav>
+      <%= link_to categories_path do %>
+        <i class="fa-solid fa-chevron-left fa-lg"></i>
+      <% end %>
+    </nav>
+    <h1 class="ml-[-15px]">NEW CATEGORY<h1>
+    <span></span>
+  </header>
+
+  <%= render "form", category: @category %>
+</div>
+

@@ -1,0 +1,23 @@
+<header class="w-full p-3 bg-[#3778c2] text-white text-lg flex justify-between">
+  <nav>
+    <%= link_to splash_index_path do %>
+      <i class="fa-solid fa-chevron-left fa-lg"></i>
+    <% end %>
+  </nav>
+  <h1 class="ml-[-15px]">SIGNUP<h1>
+  <span></span>
+</header>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "w-full mt-4 flex flex-col items-center gap-1"}) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <%= f.text_field :name, autocomplete: "off", placeholder: "Name", class: "w-full p-3" %>
+ 
+  <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "Email", class: "w-full p-3" %>
+
+  <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "w-full p-3" %>
+
+  <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "w-full p-3" %>
+
+  <%= f.submit "Sign up", class: "mt-3 px-10 py-3 rounded-sm bg-[#3778c2] text-white cursor-pointer" %>
+<% end %>
