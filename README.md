@@ -104,8 +104,6 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> View Video Demo [here](https://www.loom.com/share/0ff174560ebd4edfa4ee68f389f36836)
-
 - View Video Demo [here]https://drive.google.com/file/d/1meKcfiyho_4XTISFYzwsu5IwTp1hggAO/view?usp=share_link
 
 > View Live Demo [here](https://fonkwa.onrender.com/) 
