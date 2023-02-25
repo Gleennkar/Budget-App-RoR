@@ -107,7 +107,7 @@ After you're finished please remove all the comments and instructions!
 
 > View Video Demo [here](https://www.loom.com/share/0ff174560ebd4edfa4ee68f389f36836)
 
-> View Live Demo [here](https://fonkwa.onrender.com) 
+> View Live Demo [here](https://eldeeb.onrender.com/splash) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
